@@ -1,9 +1,9 @@
 pipeline{
-  /* agent any 
+     agent any 
     environment{
         VERSION = "${env.BUILD_ID}"
     } 
-     agent {
+/*   agent {
           docker {
                 image 'openjdk:11'
 	  }		  
