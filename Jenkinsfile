@@ -4,6 +4,10 @@ pipeline{
         VERSION = "${env.BUILD_ID}"
     } 	
         stages{
+	stage("Build Docker Image") {
+            steps {
+                sh 'docker build -t openjdk:11 .'
+            }	
         stage("sonar quality check"){
           /*  agent {
                 docker {
