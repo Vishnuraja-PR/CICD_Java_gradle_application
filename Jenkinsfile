@@ -12,16 +12,16 @@ pipeline{
             } */	
             steps{
 		docker.image('openjdk:11').inside {    
-                script{
-                    withSonarQubeEnv(credentialsId: 'sonar-token') {
-                            sh 'chmod +x gradlew'
-			    sh './gradlew sonarqube'
-			//  sh './gradlew sonarqube --scan'
-			//  sh './gradlew sonarqube -stacktrace'
-			//  sh './gradlew sonarqube --debug'
-			    
-                           
-                    }
+			script{
+			    withSonarQubeEnv(credentialsId: 'sonar-token') {
+				    sh 'chmod +x gradlew'
+				    sh './gradlew sonarqube'
+				//  sh './gradlew sonarqube --scan'
+				//  sh './gradlew sonarqube -stacktrace'
+				//  sh './gradlew sonarqube --debug'
+
+
+			    }
 		    }	
                     timeout(time: 1, unit: 'HOURS') {
                       def qg = waitForQualityGate()
