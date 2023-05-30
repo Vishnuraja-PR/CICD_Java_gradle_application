@@ -1,8 +1,12 @@
 pipeline{
-    agent any 
+  /* agent any 
     environment{
         VERSION = "${env.BUILD_ID}"
-    }
+    } */
+     agent {
+          docker {
+                image 'openjdk:11'
+           }	
     stages{
         stage("sonar quality check"){
       /*    agent {
